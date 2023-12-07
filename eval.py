@@ -6,14 +6,14 @@ def main():
     threads = 10
     
     # Example usage:
-    gt_path = "./dataset/annotations/"
-    det_path = "./results/"
+    gt_path = "/home/host/Datasets/UP-COUNT/annotations/"
+    det_path = "/home/host/Projects/UP-COUNT/UAV-DOT-DETECT/results/"
 
-    list_path = "dataset/testlist.txt"
+    list_path = "/home/host/Projects/UP-COUNT/UAV-DOT-DETECT/test_paths.txt"
 
     all_gt_result, all_det_result = save_anno_res(gt_path, det_path, list_path)
 
-    # calculate mAP
+    # # calculate mAP
 
     mAP_results = mAP(all_gt_result, all_det_result, threads=threads)
 
