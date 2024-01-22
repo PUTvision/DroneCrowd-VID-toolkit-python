@@ -8,8 +8,8 @@ from src.map import mAP
 
 
 @click.command()
-@click.option('--dataset', '-d', type=click.Choice(['dronecrowd', 'upcount'], case_sensitive=False), help='Dataset name')
-@click.option('--preds', '-p', type=click.Path(exists=True), help='Path to predictions')
+@click.option('--dataset', '-d', type=click.Choice(['dronecrowd', 'upcount'], case_sensitive=False), help='Dataset name', required=True)
+@click.option('--preds', '-p', type=click.Path(exists=True), help='Path to predictions', required=True)
 @click.option('--threads', '-t', type=int, default=10, help='Number of threads')
 def main(dataset, preds, threads):
     
