@@ -18,8 +18,8 @@ def main(dataset, preds, threads):
         list_path = os.path.join(Path(__file__).parent, 'gt', 'dronecrowd_testlist.txt')
         img_wh = (1920, 1080)
     elif dataset == 'upcount':
-        gt_path = os.path.join(Path(preds).parent, 'gt', 'upcount')
-        list_path = os.path.join(Path(preds).parent, 'gt', 'upcount_testlist.txt')
+        gt_path = os.path.join(Path(__file__).parent, 'gt', 'upcount')
+        list_path = os.path.join(Path(__file__).parent, 'gt', 'upcount_testlist.txt')
         img_wh = (3840, 2160)
 
     all_gt_result, all_det_result = save_anno_res(gt_path, preds, list_path, dataset=dataset)
