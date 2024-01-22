@@ -12,10 +12,10 @@ from src.map import mAP
 @click.option('--preds', '-p', type=click.Path(exists=True), help='Path to predictions', required=True)
 @click.option('--threads', '-t', type=int, default=10, help='Number of threads')
 def main(dataset, preds, threads):
-    
+        
     if dataset == 'dronecrowd':    
-        gt_path = os.path.join(Path(preds).parent, 'gt', 'dronecrowd')
-        list_path = os.path.join(Path(preds).parent, 'gt', 'dronecrowd_testlist.txt')
+        gt_path = os.path.join(Path(__file__).parent, 'gt', 'dronecrowd')
+        list_path = os.path.join(Path(__file__).parent, 'gt', 'dronecrowd_testlist.txt')
         img_wh = (1920, 1080)
     elif dataset == 'upcount':
         gt_path = os.path.join(Path(preds).parent, 'gt', 'upcount')
