@@ -13,10 +13,21 @@ pip3 install -r requirements.txt
 
 ## Usage
 
-Modify paths and parameters in `eval.py` and run the following command:
+Run the following command:
+```
+Usage: eval.py [OPTIONS]
 
+Options:
+  -d, --dataset [dronecrowd|upcount]
+                                  Dataset name
+  -p, --preds PATH                Path to predictions
+  -t, --threads INTEGER           Number of threads
+  --help                          Show this message and exit.
+```
+
+For example:
 ```bash
-python3 eval.py
+python3 eval.py -d dronecrowd -p ../results/pt_pred/dronecrowd/
 ```
 
 

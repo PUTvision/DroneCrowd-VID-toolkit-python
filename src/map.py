@@ -1,3 +1,4 @@
+from typing import Tuple, List
 import numpy as np
 from multiprocessing import Process, Queue
 import time
@@ -6,11 +7,11 @@ from scipy.spatial.distance import cdist
 
 
 class mAP:
-    def __init__(self, all_gt_result: dict, all_det_result: dict, threads: int = 1) -> None:
-        self.default_ranges = np.arange(1, 26)
+    def __init__(self, all_gt_result: dict, all_det_result: dict, thresh_range: Tuple[float, float, float], threads: int = 1) -> None:
+        self.default_ranges = thresh_range
         self.results = {}
 
-        print('Calculating mAP...')
+        print(f'Calculating mAP in range: {self.default_ranges.tolist()}')
 
         tasks_to_accomplish = Queue()
         tasks_that_are_done = Queue()
@@ -98,7 +99,7 @@ class mAP:
 
         return {threshold: self._voc_ap(rec, prec) * 100}
 
-    def get(self, ranges: list[int]):
+    def get(self, ranges: List[int]):
         return np.mean([self.results[i] for i in ranges])
 
     def _evalRes(self, gt0, dt0, thr):
